@@ -80,15 +80,19 @@
 
 
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="任务栈任务栈是一种“先进后出”的栈结构，它存储着已经打开的Activity实例。每按一次返回键，就会有一个Activity出栈，直到栈为空为止，当栈中没有Activity实例时，系统就会回收这个任务栈。一个应用可以有多个任务栈，这跟每个Activity的启动模式有关系。任务栈分前台任务栈和后台任务栈，顾名思义，前台任务栈是存储着当前可见的有用户焦点的activity实例，反之，则是后台任务栈。
+A">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Activity启动模式">
+<meta property="og:url" content="http://yoursite.com/2016/08/03/Activity启动模式/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description">
+<meta property="og:description" content="任务栈任务栈是一种“先进后出”的栈结构，它存储着已经打开的Activity实例。每按一次返回键，就会有一个Activity出栈，直到栈为空为止，当栈中没有Activity实例时，系统就会回收这个任务栈。一个应用可以有多个任务栈，这跟每个Activity的启动模式有关系。任务栈分前台任务栈和后台任务栈，顾名思义，前台任务栈是存储着当前可见的有用户焦点的activity实例，反之，则是后台任务栈。
+A">
+<meta property="og:updated_time" content="2016-08-03T02:41:29.277Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Activity启动模式">
+<meta name="twitter:description" content="任务栈任务栈是一种“先进后出”的栈结构，它存储着已经打开的Activity实例。每按一次返回键，就会有一个Activity出栈，直到栈为空为止，当栈中没有Activity实例时，系统就会回收这个任务栈。一个应用可以有多个任务栈，这跟每个Activity的启动模式有关系。任务栈分前台任务栈和后台任务栈，顾名思义，前台任务栈是存储着当前可见的有用户焦点的activity实例，反之，则是后台任务栈。
+A">
 
 
 
@@ -106,7 +110,7 @@
   };
 </script>
 
-  <title> Hexo </title>
+  <title> Activity启动模式 | Hexo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -137,9 +141,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -236,9 +238,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -258,10 +260,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/08/03/Activity启动模式/" itemprop="url">
-                  Activity启动模式
-                </a>
+                Activity启动模式
               
             
           </h1>
@@ -308,9 +307,7 @@
       
 
       
-        
-          
-            <h2 id="任务栈"><a href="#任务栈" class="headerlink" title="任务栈"></a>任务栈</h2><p>任务栈是一种“先进后出”的栈结构，它存储着已经打开的Activity实例。每按一次返回键，就会有一个Activity出栈，直到栈为空为止，当栈中没有Activity实例时，系统就会回收这个任务栈。一个应用可以有多个任务栈，这跟每个Activity的启动模式有关系。任务栈分前台任务栈和后台任务栈，顾名思义，前台任务栈是存储着当前可见的有用户焦点的activity实例，反之，则是后台任务栈。</p>
+        <h2 id="任务栈"><a href="#任务栈" class="headerlink" title="任务栈"></a>任务栈</h2><p>任务栈是一种“先进后出”的栈结构，它存储着已经打开的Activity实例。每按一次返回键，就会有一个Activity出栈，直到栈为空为止，当栈中没有Activity实例时，系统就会回收这个任务栈。一个应用可以有多个任务栈，这跟每个Activity的启动模式有关系。任务栈分前台任务栈和后台任务栈，顾名思义，前台任务栈是存储着当前可见的有用户焦点的activity实例，反之，则是后台任务栈。</p>
 <h2 id="Activity的启动模式"><a href="#Activity的启动模式" class="headerlink" title="Activity的启动模式"></a>Activity的启动模式</h2><p>目前有四种启动模式:standard、singleTop、singleTask和singleInstance，下面一一介绍各个启动模式的含义：<br><strong>standard</strong>: 系统默认的启动模式，每次启动一个Activity都会新建一个实例，不管这个实例有无存在。这种模式下，这个Activity运行在启动它的那个Activity所在的栈中。所以，如果使用非Activity类型的Context去启动standard模式的Activity就会报错，因为这种Context没有所谓 的任务栈。  </p>
 <p><strong>singleTop</strong>: 栈顶复用模式。在这种模式下，如果新Activity已经位于任务栈的栈顶，那么此Activity就不会被重新创建，同时它的onNewIntent()会被回调。这种模式，可以避免一个Activity连续多次被创建，暂时没想到这种模式的其他使用场景。  </p>
 <p><strong>singleTask</strong>: 栈内复用模式。这种模式相对于其他模式都要复杂，但使用得比较频繁。这种模式下，它保证了一个应用里最多只有一个当前Activity的实例。具体说，当一个singleTask模式的Activity A被请求启动后，系统首先会寻找A所需要的任务栈是否存在，不存在的话会创建一个任务栈，然后把A的实例放到栈中；栈存在的话，这时要看栈中是否有该Activity的实例存在，如果存在，那么系统会把A以上的所有Activity实例出栈，然后回调它的onNewIntent(),反之，则创建A的实例并将它压入栈中。 </p>
@@ -319,16 +316,19 @@
 <p>android:taskAffinity与allowTaskReparenting属性的配对使用，常用在跨应用的调用上。当一个应用A启动了应用B的某个Activity时，如果这个Activity的allowTaskReparenting属性值设为true的话，那么B启动后，也会创建一个存储该Activity实例的任务栈。举个例子，假设应用B的这个Activity为S，将allowTaskReparenting属性值设为true，从应用A中启动它，然后再按Home键返回至桌面，点击B应用的桌面图标，发现这个时候不是启动了B应用的主Activity，而是已经被打开的Activity S，反之将allowTaskReparenting属性值设为false，再重复进行此操作，此时B启动的主Activity。</p>
 <p><strong>singleInstance</strong>: 单实例模式。这是一种加强的singleTask模式，它与singleTask模式基本相似，唯一不同的一点是，此模式下的Activity实例位于的单独的任务栈中。可以这么理解，当所有singleTask模式下的Activity都设置了taskAffinity属性值并且不相同，就跟singleInstance模式的Activity的效果一样了。</p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
@@ -336,235 +336,32 @@
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/08/02/Activity的生命周期/" rel="next" title="Activity的生命周期">
+                <i class="fa fa-chevron-left"></i> Activity的生命周期
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2016/08/02/Activity的生命周期/" itemprop="url">
-                  Activity的生命周期
-                </a>
-              
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-02T12:14:50+08:00" content="2016-08-02">
-              2016-08-02
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/02/Activity的生命周期/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/02/Activity的生命周期/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Activity是Android开发中最常用的组件，深刻理解Activity的生命周期有助于我们开发强大而灵活的应用。</p>
-<h2 id="Activity的三种状态"><a href="#Activity的三种状态" class="headerlink" title="Activity的三种状态"></a>Activity的三种状态</h2><p>Activity基本上以三种状态存在：<br>onResume：位于屏幕前台并具有用户焦点。<br>onPause：部分可见，该Activity被一个透明的Activity或者Dialog覆盖。<br>onStop：完全不可见，该Activity被另一个Activity完全覆盖。</p>
-<h2 id="基本生命周期方法"><a href="#基本生命周期方法" class="headerlink" title="基本生命周期方法"></a>基本生命周期方法</h2><p>以下是基本的生命周期方法：<br>onCreate(): 首次启动Activity时调用，适合做一些初始化的操作。<br>onRestart(): 在Activity已停止并再次启动调用，始终后接onStart()，该方法里一般不做任何操作。<br>onStart():在Activity即将可见时调用，即在onResume()之前调用，与onStop()相对应。<br>onResume():在 Activity 即将开始与用户进行交互之前调用。 此时，Activity 处于 Activity 堆栈的顶层，并具有用户输入焦点。<br>onPause():当系统即将开始继续另一个 Activity 时调用。 此方法通常用于确认对持久性数据的未保存更改、停止动画以及其他可能消耗 CPU 的内容，诸如此类。 它应该非常迅速地执行所需操作，因为它返回后，下一个 Activity 才能继续执行。<br>onStop(): Activity 对用户不再可见时调用。如果 Activity 被销毁，或另一个 Activity（一个现有 Activity 或新 Activity）继续执行并将其覆盖，就可能发生这种情况。<br>如果 Activity 恢复与用户的交互，则后接 onRestart()，如果 Activity 被销毁，则后接 onDestroy()。<br>onDestroy(): 在 Activity 被销毁前调用。这是 Activity 将收到的最后调用。 当 Activity 结束（有人调用 Activity 上的 finish()），或系统为节省空间而暂时销毁该 Activity 实例时，可能会调用它。 可以通过 isFinishing() 方法区分这两种情形。适合最一些资源回收操作。</p>
-<h2 id="完整的生命周期"><a href="#完整的生命周期" class="headerlink" title="完整的生命周期"></a>完整的生命周期</h2><p><img src="http://i.imgur.com/gizDllc.png" alt=""><br>跟Activity是三种状态类似，Activity的生命周期分三种：<br>完整的生命周期：  onCreate()-&gt;onStart()-&gt;onResume()-&gt;onPause()-&gt;onStop()-&gt;onDestroy()。<br>可见生命周期：发生在onStart()和onStop方法之间。<br>前台生命周期：发生在onResume()和onPause()之间。</p>
-<h2 id="保存-Activity-状态"><a href="#保存-Activity-状态" class="headerlink" title="保存 Activity 状态"></a>保存 Activity 状态</h2><p>涉及到onSaveInstanceState()和onRestoreInstanceState()两个方法。需要明确的是onSaveInstanceState()调用在onStop()之前，与onPause()没有既定的时序关系。需要明确的是，正常情况情况下系统不会回调onSaveInstanceState()这个方法，它只会出现在Activity被异常终止的情况下。<br>1、 该Activity可能会被系统内存回收。比如在该Activity上启动新的Activity、按Home键、锁屏等。<br>2、 资源相关的系统配置发生改变导致Activity被杀死并重新创建。</p>
-<p>View的正常保存和恢复的前提是需要设定控件id，保存和恢复的过程是一种典型的委托思想，上层委托下层，父容器委托子容器。</p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>onCreateOptionsMenu()十分常用，它跟onCreate()方法类似，只会在首次启动Activity时调用。需要注意的是，它是调用在onResume()之后，如果在onResume()中直接操作menuItem，可能会引起空指针异常。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/03/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-05-03T20:40:40+08:00" content="2016-05-03">
-              2016-05-03
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/03/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/03/hello-world/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
@@ -572,6 +369,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/03/Activity启动模式/"
+           data-title="Activity启动模式" data-url="http://yoursite.com/2016/08/03/Activity启动模式/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -591,8 +396,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/default_avatar.jpg"
@@ -635,6 +449,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#任务栈"><span class="nav-number">1.</span> <span class="nav-text">任务栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Activity的启动模式"><span class="nav-number">2.</span> <span class="nav-text">Activity的启动模式</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -731,6 +556,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
